@@ -1,0 +1,92 @@
+:root {
+	accent-color: green;
+}
+
+html {
+	font-family: sans-serif;
+}
+
+body {
+	background-color: beige;
+}
+
+.todo-app {
+	width: min(90%, 700px);
+	margin-inline: auto;
+}
+
+h1 {
+	text-align: center;
+}
+
+.form {
+	display: flex;
+	gap: 12px;
+	margin: 0 auto 24px;
+	width: min(100%, 400px);
+}
+
+.new-task-input {
+	flex-grow: 1;
+	border-radius: 8px;
+	padding: 8px 12px;
+}
+
+.todo-list {
+	margin: 0;
+	padding: 12px;
+	list-style: none;
+	background-color: rgb(124, 203, 177);
+	border-radius: 12px;
+	overflow: hidden;
+	border: 2px solid green;
+}
+
+.todo-item {
+	cursor: grab;
+	display: flex;
+	gap: 10px;
+	align-items: center;
+	padding: 4px 8px;
+	background-color: rgb(231, 248, 162);
+	border-radius: 8px;
+
+	&:not(:last-child) {
+		margin-bottom: 12px;
+	}
+}
+
+.todo-item label,
+.todo-item input {
+	cursor: pointer;
+}
+
+.todo-item label:has(:checked) {
+	text-decoration: line-through;
+}
+
+.btn-group {
+	margin-left: auto;
+	display: flex;
+	gap: 10px;
+}
+
+.btn {
+	cursor: pointer;
+	border-radius: 6px;
+	min-width: 60px;
+
+	padding: 4px 8px;
+}
+
+.visually-hidden {
+	border: 0;
+	clip: rect(0 0 0 0);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
