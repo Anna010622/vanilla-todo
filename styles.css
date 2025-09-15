@@ -56,6 +56,11 @@ h1 {
 	}
 }
 
+.todo-item.dragging {
+	opacity: 0.6;
+	transform: scale(0.98);
+}
+
 .todo-item label,
 .todo-item input {
 	cursor: pointer;

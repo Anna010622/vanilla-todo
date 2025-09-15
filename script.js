@@ -13,6 +13,8 @@ renderTodoList(tasks);
 todoFormEl.addEventListener('submit', handleAddTodo);
 dialogSaveBtn.addEventListener('click', handleSaveChanges);
 dialogCloseBtn.addEventListener('click', () => editDialogEl.close());
+todoListEl.addEventListener('dragover', handleDragOver);
+todoListEl.addEventListener('drop', handleDop);
 
 function loadTodoList() {
 	return JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
@@ -43,6 +45,7 @@ function createTodoElement(task) {
 	li.className = 'todo-item';
 	li.dataset.id = task.id;
 	li.draggable = true;
+	addDragHandlersOnLi(li, task);
 
 	const label = document.createElement('label');
 	const checkbox = document.createElement('input');
@@ -119,4 +122,51 @@ function handleSaveChanges() {
 	task.text = newText;
 	updateLocalStorage();
 	renderTodoList(tasks);
+}
+
+function handleDragOver(e) {
+	e.preventDefault();
+	const draggingEl = document.querySelector('.dragging');
+	if (!draggingEl) return;
+
+	const afterEl = getDragAfterElement(todoListEl, e.clientY);
+	if (afterEl === null) {
+		todoListEl.appendChild(draggingEl);
+	} else {
+		todoListEl.insertBefore(draggingEl, afterEl);
+	}
+}
+
+function handleDop(e) {
+	e.preventDefault();
+
+	const ids = Array.from(todoListEl.querySelectorAll('.todo-item')).map(
+		el => el.dataset.id
+	);
+
+	tasks = ids.map(id => tasks.find(t => t.id === id));
+	updateLocalStorage();
+}
+
+function getDragAfterElement(container, mouseY) {
+	const elements = [...container.querySelectorAll('.todo-item:not(.dragging)')];
+
+	for (const el of elements) {
+		const rect = el.getBoundingClientRect();
+		if (mouseY < rect.top + rect.height / 2) {
+			return el;
+		}
+	}
+
+	return null;
+}
+
+function addDragHandlersOnLi(li) {
+	li.addEventListener('dragstart', () => {
+		li.classList.add('dragging');
+	});
+
+	li.addEventListener('dragend', () => {
+		li.classList.remove('dragging');
+	});
 }
