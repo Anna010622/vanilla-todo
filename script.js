@@ -63,11 +63,17 @@ function createTodoElement(task) {
 	const buttonGroup = document.createElement('div');
 	buttonGroup.className = 'btn-group';
 
-	const editBtn = createButton('Edit', 'btn-edit', () =>
-		openEditDialog(task.id)
+	const editBtn = createButton(
+		'btn-edit',
+		() => openEditDialog(task.id),
+		'edit',
+		'Edit'
 	);
-	const deleteBtn = createButton('Delete', 'btn-delete', () =>
-		deleteTask(task.id)
+	const deleteBtn = createButton(
+		'btn-delete',
+		() => deleteTask(task.id),
+		'delete',
+		'Delete'
 	);
 
 	buttonGroup.append(editBtn, deleteBtn);
@@ -76,11 +82,15 @@ function createTodoElement(task) {
 	return li;
 }
 
-function createButton(text, className, handler) {
+function createButton(className, handler, iconName, text) {
 	const button = document.createElement('button');
 	button.type = 'button';
 	button.className = `btn ${className}`;
-	button.textContent = text;
+	button.setAttribute('aria-label', `${text}.`);
+	button.innerHTML = `
+		<svg class="icon" width="20" height="20">
+			<use href="./sprite.svg#${iconName}"></use>
+		</svg>`;
 	button.addEventListener('click', handler);
 	return button;
 }

@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>To-do app</title>
+		<title>To-Do</title>
+		<link rel="icon" type="image/svg" href="/faicon.svg" />
 		<link rel="stylesheet" href="./styles.css" />
 		<script src="./script.js" defer></script>
 	</head>
@@ -21,12 +22,14 @@
 					autofocus
 				/>
 				<button
-					class="btn"
+					class="btn add-btn"
 					id="addNewTask"
 					type="submit"
 					aria-label="Add todo."
 				>
-					+
+					<svg class="icon" width="20" height="20">
+						<use href="./sprite.svg#plus"></use>
+					</svg>
 				</button>
 			</form>
 
@@ -35,8 +38,8 @@
 				<form method="dialog">
 					<input type="text" autofocus required />
 					<div class="dialog-actions">
-						<button id="closeBtn" type="button">Cancel</button>
-						<button id="saveBtn" type="submit">Save</button>
+						<button class="btn" id="closeBtn" type="button">Cancel</button>
+						<button class="btn" id="saveBtn" type="submit">Save</button>
 					</div>
 				</form>
 			</dialog>
