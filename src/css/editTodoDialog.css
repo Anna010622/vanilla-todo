@@ -1,0 +1,47 @@
+#editDialog {
+	border: none;
+	border-radius: var(--radius-md);
+	padding: var(--space-5);
+	width: max-content;
+	color: inherit;
+
+	h2 {
+		margin-top: var(--space-0);
+		margin-bottom: var(--space-3);
+		font-size: 1.125rem;
+	}
+
+	input {
+		width: 100%;
+		padding: var(--space-3);
+		margin-bottom: var(--space-4);
+		border: 2px solid var(--clr-ntrl-lt);
+		border-radius: var(--radius-md);
+	}
+
+	.dialog-actions {
+		display: flex;
+		justify-content: space-between;
+		gap: var(--space-3);
+	}
+	.dialog-actions .btn {
+		min-width: 5.625rem;
+		font-weight: 500;
+	}
+
+	#closeBtn {
+		background: var(--clr-ntrl-lt);
+
+		&:hover {
+			background-color: var(--clr-ntrl-lt-hov);
+		}
+	}
+
+	#saveBtn {
+		background: var(--clr-accent-blue);
+
+		&:hover {
+			background-color: var(--clr-accent-blue-hov);
+		}
+	}
+}

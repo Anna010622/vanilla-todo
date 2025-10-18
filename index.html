@@ -4,14 +4,16 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>To-Do</title>
-		<link rel="icon" type="image/svg" href="/faicon.svg" />
-		<link rel="stylesheet" href="./styles.css" />
-		<script src="./script.js" defer></script>
+		<link rel="icon" type="image/svg" href="./assets/icons/faicon.svg" />
+		<link rel="stylesheet" href="./src/css/styles.css" />
+		<script src="src/js/script.js" type="module"></script>
 	</head>
 	<body>
 		<div class="todo-app">
-			<h1>My To-Do List</h1>
-			<form class="form" id="form">
+			<h1 id="tabs-title">To-Do List</h1>
+
+			<!-- Add todo form -->
+			<form class="add-todo-form" id="add-todo-form">
 				<label for="input" class="visually-hidden">Enter your task</label>
 				<input
 					class="new-task-input"
@@ -28,11 +30,12 @@
 					aria-label="Add todo."
 				>
 					<svg class="icon" width="20" height="20">
-						<use href="./sprite.svg#plus"></use>
+						<use href="./assets/icons/sprite.svg#plus"></use>
 					</svg>
 				</button>
 			</form>
 
+			<!-- Edit todo dialog -->
 			<dialog id="editDialog">
 				<h2>Edit task</h2>
 				<form method="dialog">
@@ -44,7 +47,56 @@
 				</form>
 			</dialog>
 
-			<ul class="todo-list" id="todoList"></ul>
+			<!-- Tabs -->
+			<div class="tab-component">
+				<div class="tabs-header">
+					<ul class="tabs-list" aria-labelledby="tabs-title">
+						<li>
+							<button id="tab-my-day" class="tab-button" aria-current="tab">
+								My day
+							</button>
+						</li>
+					</ul>
+
+					<!-- Add new list form -->
+					<form id="add-list-form">
+						<label for="list-name-input" class="visually-hidden"
+							>Enter list name.</label
+						>
+						<input
+							id="list-name-input"
+							type="text"
+							placeholder="List name"
+							required
+						/>
+						<button
+							class=""
+							id="add-list-button"
+							type="submit"
+							aria-label="Add new list."
+							title="Add new list"
+						>
+							<svg class="icon" width="20" height="20">
+								<use href="./assets/icons/sprite.svg#plus"></use>
+							</svg>
+						</button>
+					</form>
+				</div>
+
+				<!-- Tab panels -->
+				<div class="tab-panels">
+					<ul
+						id="panel-my-day"
+						aria-labelledby="tab-my-day"
+						class="todo-list"
+					></ul>
+					<ul
+						id="panel-project"
+						aria-labelledby="tab-project"
+						class="todo-list"
+					></ul>
+				</div>
+			</div>
 		</div>
 	</body>
 </html>

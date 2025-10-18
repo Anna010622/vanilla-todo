@@ -31,4 +31,4 @@ A simple **To-Do list** built with vanilla **HTML, CSS, and JavaScript**.
 
 ## 📸 Screenshots
 
-![Desktop Screenshot](./screenshot-desktop.png)
+![Desktop Screenshot](./assets/screenshots/screenshot-desktop.png)

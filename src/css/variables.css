@@ -1,0 +1,33 @@
+:root {
+	accent-color: var(--clr-accent-green);
+
+	--clr-accent-green: #c1fba4;
+	--clr-accent-blue: #90f1ef;
+	--clr-accent-pink: #ffd6e0;
+
+	--clr-accent-green-hov: #a8d990;
+	--clr-accent-blue-hov: #85dedd;
+	--clr-accent-pink-hov: #eac5ce;
+
+	--clr-ntrl-lts: #fcfcfc;
+	--clr-ntrl-dk: #282828;
+	--clr-ntrl-lt: #ededef;
+
+	--clr-ntrl-lt-hov: #dbdbdc;
+
+	--space-0: 0;
+
+	--space-1: 0.25rem;
+	--space-2: 0.5rem;
+	--space-3: 0.75rem;
+
+	--space-4: 1rem;
+	--space-5: 1.25rem;
+	--space-6: 1.5rem;
+
+	--space-8: 2rem;
+
+	--radius-sm: var(--space-2);
+	--radius-md: var(--space-3);
+	--radius-lg: var(--space-4);
+}
