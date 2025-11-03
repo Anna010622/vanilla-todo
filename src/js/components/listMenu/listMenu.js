@@ -1,5 +1,5 @@
 import { removeList, updateListName } from '../../listsManager.js';
-import { renderTabs } from '../tabs/tabsUI.js';
+import { renderPanels, renderTabs } from '../tabs/tabsUI.js';
 
 export function handleOpenListMenu({ menu, e }) {
 	e.stopPropagation();
@@ -35,6 +35,7 @@ function handleRenameList() {
 function handleDeleteList() {
 	removeList();
 	renderTabs();
+	renderPanels();
 }
 
 export function createListMenu() {

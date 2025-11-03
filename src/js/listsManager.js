@@ -42,12 +42,17 @@ export function addList(id, title) {
 }
 
 export function removeList() {
-	const previousIndex = lists.findIndex(el => el.id === activeListId) - 1;
+	const currentIndex = lists.findIndex(el => el.id === activeListId);
 
 	lists = lists.filter(list => list.id !== activeListId);
 
-	setActiveListId(lists[previousIndex].id);
-	saveLists(lists);
+	const newIndex = Math.max(0, currentIndex - 1);
+	const newActiveList = lists[newIndex];
+
+	if (newActiveList) {
+		setActiveListId(newActiveList.id);
+		saveLists(lists);
+	}
 }
 
 export function updateListName(newListName) {
