@@ -41,8 +41,17 @@ export function addList(id, title) {
 	return newList;
 }
 
-export function removeList(id) {
-	lists = lists.filter(list => list.id !== id);
+export function removeList() {
+	const previousIndex = lists.findIndex(el => el.id === activeListId) - 1;
+
+	lists = lists.filter(list => list.id !== activeListId);
+
+	setActiveListId(lists[previousIndex].id);
+	saveLists(lists);
+}
+
+export function updateListName(newListName) {
+	getActiveList().title = newListName;
 	saveLists(lists);
 }
 

@@ -11,6 +11,7 @@
 	}
 
 	li {
+		position: relative;
 		padding: var(--space-2);
 		border-radius: var(--radius-md) var(--radius-md) 0 0;
 		position: relative;
@@ -35,13 +36,13 @@
 	li:has([aria-current])::before {
 		border-radius: 0 0 var(--border-radius) 0;
 		left: calc(var(--border-radius) * -1);
-		box-shadow: 5px 5px 0 5px var(--clr-ntrl-lt-hov);
+		box-shadow: 4px 4px 0 4px var(--clr-ntrl-lt-hov);
 	}
 
 	li:has([aria-current])::after {
 		border-radius: 0 0 0 var(--border-radius);
 		right: calc(var(--border-radius) * -1);
-		box-shadow: -5px 5px 0 5px var(--clr-ntrl-lt-hov);
+		box-shadow: -4px 4px 0 4px var(--clr-ntrl-lt-hov);
 	}
 
 	.tab-button {

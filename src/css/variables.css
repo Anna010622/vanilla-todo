@@ -10,8 +10,9 @@
 	--clr-accent-pink-hov: #eac5ce;
 
 	--clr-ntrl-lts: #fcfcfc;
-	--clr-ntrl-dk: #282828;
 	--clr-ntrl-lt: #ededef;
+	--clr-ntrl-dk: #282828;
+	--clr-ntrl-dks: #6c6c6c;
 
 	--clr-ntrl-lt-hov: #dbdbdc;
 
@@ -27,6 +28,7 @@
 
 	--space-8: 2rem;
 
+	--radius-xs: var(--space-1);
 	--radius-sm: var(--space-2);
 	--radius-md: var(--space-3);
 	--radius-lg: var(--space-4);

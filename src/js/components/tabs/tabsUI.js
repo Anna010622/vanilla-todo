@@ -3,7 +3,7 @@ import {
 	getActiveListId,
 	getActiveList,
 } from '../../listsManager.js';
-import { handleOpenListMenu } from '../listMenu/listMenu.js';
+import { createListMenu, handleOpenListMenu } from '../listMenu/listMenu.js';
 import { handleDragOver, handleDrop } from '../todo/todoDragAndDrop.js';
 import { renderTodoList } from '../todo/todoList.js';
 import { tabsHeader, tabPanelsContainer } from './tabs.js';
@@ -16,6 +16,8 @@ export function createNewTab(tabName, id) {
 	button.className = 'btn tab-button';
 	button.textContent = tabName;
 
+	const menu = createListMenu();
+
 	const editButton = document.createElement('button');
 	editButton.className = 'tab-button tab-button-icon';
 	editButton.setAttribute('hidden', true);
@@ -23,10 +25,13 @@ export function createNewTab(tabName, id) {
 		<svg class="icon" width="20" height="20">
 			<use href="./assets/icons/sprite.svg#dots"></use>
 		</svg>`;
-	editButton.addEventListener('click', handleOpenListMenu);
+	editButton.addEventListener('click', e => {
+		handleOpenListMenu({ menu, e });
+	});
 
 	li.appendChild(button);
 	li.appendChild(editButton);
+	li.appendChild(menu);
 	return li;
 }
 
