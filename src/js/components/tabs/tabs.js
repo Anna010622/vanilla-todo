@@ -57,6 +57,8 @@ addListForm.addEventListener('submit', e => {
 	addListForm.reset();
 
 	todoInput.focus();
+
+	renderTodoList(getActiveList());
 });
 
 function setActiveTab(tab) {
