@@ -1,4 +1,4 @@
-import { removeList, updateListName } from '../../listsManager.js';
+import { getLists, removeList, updateListName } from '../../listsManager.js';
 import { renderPanels, renderTabs } from '../tabs/tabsUI.js';
 
 export function handleOpenListMenu({ menu, e }) {
@@ -6,6 +6,7 @@ export function handleOpenListMenu({ menu, e }) {
 
 	const isActive = menu.classList.toggle('active');
 	menu.setAttribute('aria-expanded', isActive);
+	updateDeleteButtonVisibility(menu);
 
 	if (menu.classList.contains('active')) {
 		setTimeout(() => {
@@ -56,4 +57,15 @@ function addActions(e) {
 	const action = e.target.dataset.action;
 	if (action === 'rename') handleRenameList();
 	if (action === 'delete') handleDeleteList();
+}
+
+function updateDeleteButtonVisibility(menu) {
+	const deleteButton = menu.querySelector('[data-action="delete"]');
+	if (!deleteButton) return;
+
+	if (getLists().length > 1) {
+		deleteButton.removeAttribute('hidden');
+	} else {
+		deleteButton.setAttribute('hidden', true);
+	}
 }
