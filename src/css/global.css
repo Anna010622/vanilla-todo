@@ -4,10 +4,6 @@
 	box-sizing: border-box;
 }
 
-html {
-	scrollbar-gutter: stable;
-}
-
 body {
 	min-height: 100vh;
 	margin: 0;
@@ -29,11 +25,9 @@ button {
 
 .todo-app {
 	width: 100%;
-	min-height: 100vh;
 
 	@media (width >= 48rem) {
 		width: 48rem;
-		min-height: max-content;
 		margin-inline: auto;
 		border-radius: var(--radius-lg);
 	}

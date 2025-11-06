@@ -80,7 +80,12 @@
 }
 
 .tab-panels {
-	padding: var(--space-4) var(--space-6);
+	padding: var(--space-4);
 	border-radius: var(--radius-lg);
+
 	background-color: var(--clr-ntrl-lt-hov);
+
+	@media (width >= 48rem) {
+		padding: var(--space-6);
+	}
 }
