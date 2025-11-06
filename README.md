@@ -1,6 +1,7 @@
 # 📝 To-Do App
 
-A simple **To-Do list** built with vanilla **HTML, CSS, and JavaScript**.
+A minimalistic **To-Do** web application built with vanilla **HTML, CSS, and
+JavaScript**.
 
 ---
 
@@ -13,19 +14,26 @@ A simple **To-Do list** built with vanilla **HTML, CSS, and JavaScript**.
 
 ## ✨ Features
 
-- ➕ Add new tasks
-- ✅ Mark tasks as complete
-- 📝 Edit tasks in a dialog window
+✅ Tasks
+
+- ➕ Add new tasks to the active list
+- ✅ Mark tasks as complete / incomplete
+- 📝 Edit tasks
 - ❌ Delete tasks
 - ↕️ Drag-and-drop task reordering
 
----
+🗂️ Lists
+
+- ➕ Create multiple to-do lists
+- 📝 Rename lists
+- ❌ delete lists
+- 💾 Automatically saves lists to localStorage
 
 ## 🛠️ Tech Stack
 
 - **HTML5** – semantic structure
-- **CSS3** – responsive design
-- **JavaScript (ES6+)** – DOM manipulation, events, localStorage API
+- **CSS3** – responsive layout, modular styles
+- **JavaScript (ES6+)** – dynamic UI, modules, localStorage API
 
 ---
 
